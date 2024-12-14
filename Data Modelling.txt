@@ -1,0 +1,134 @@
+Data Modelling
+
+PQE & 	Power Pivot
+
+PQE --> Transformations --> M (Mashup) language --> ETL of Power BI (Extract, Tranform, Load)
+Power Pivot --> Transfromations, Calculations --> DAX (Data ANALYTICAL/ANALYSIS expressions) -- InMemory Columnar Database. 
+
+---------------------------------------------------------------------------
+Difference between Traditional databases and InMemory Databases.
+
+Tranditional Databases: (RDBMS)
+Ex: MySQL, SQL Server, Oracle Etc
+--> Data is stored in Row Format.
+--> Data will be stored in disk and accessed from Disk.
+--> Size is Huge
+
+InMerory Database:
+--> data is stored in Column level when ever we start to store the data.
+--> Data is stored in RAM and accesssed from RAM.
+--> Data is highly compressed.
+--> Faster in Working
+
+PQE (10GB) --> Premium
+PQE (100GB) --> Power Pivot (10GB) --> X-Velocity Engine( Vertipaq Engine)
+PQE(1000GB) -- ?
+
+PQE --> SSIS,Azure Data Bricks
+Power Pivot (DAX) , Data Modelling (Schemas/Models) --> SSAS
+Store this Models created in SSAS --> SSMS or Azure Analytical Service
+Pipeline Tool --> AZure Data Factory
+
+Power BI -- Power View
+
+Vertipaq Engine (X-Velocity Engine):
+--> When ever we are sending data from PQE to Power Pivot this comes into Picture.
+--> InMemory database properties (Columnar Storage).
+--> This will reduce the size of data to 1/10th of original Size.
+--> Aggregate functions works faster.
+--> Tiem consuming.
+
+---------------------------------------------------------------------------
+Licences in Power BI
+
+Pro - 1GB
+Premium - 10GB
+PPU
+
+---------------------------------------------------------------------------
+Data Connectivity Modes
+
+Import - Data in presentr ion Power BI.
+Direct Query - Data is not present but columns/measures created can be accessed from database/Cloud.
+Live - Data is not present but columns/measures created can be accessed from Cloud.
+
+---------------------------------------------------------------------------
+
+Data Modelling? Establishing a relationship between two tables.
+Types of Relationships
+
+-- One to one
+-- One to Many
+-- Many to one
+-- Many to many
+
+How to establish a new relationship?
+Home tab --> Manage relationships --> New relationship --> select first table --> select column -> select secodn table --> select column --> select the type of relationship --> select crossfilter direction --> Active/inactive --> Okay.
+
+Edit relarionship
+Home tab --> Manage relationships --> Edit relationship --> select first table --> select column -> select secodn table --> select column --> select the type of relationship --> select crossfilter direction --> Active/inactive --> Okay.
+
+Delete relationship --> This will delete the relationship
+Auto detect relationship
+	- This will automatically detect the relationship when data is loaded for the first time.
+	- File --> Option & setting --> options --> data load --> relationships --> checkbox auto detect relationships when 	data is loaded.
+
+cross filter directions
+	-- Single (One way (table1 - table2 ) or (table2 - table1)
+	-- Both
+
+Active relationships
+Assume referential Integrity
+-- https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-assume-referential-integrity
+
+--------------------------------------------------------
+Models/Schemas in Power BI
+
+https://www.powerbitraining.com.au/schemas-in-a-data-model/
+
+https://www.simplilearn.com/fact-table-vs-dimension-table-article#:~:text=Fact%20tables%20have%20more%20records,table%20has%20a%20concatenated%20key.
+https://www.guru99.com/fact-table-vs-dimension-table.html
+
+Fact Column - Measures (Sales, Profit, Quantity) Etc
+Dimension Column - Market,segemnt,country ID's Etc
+Fact Table - Foreign Key + Fact columns
+Dimension Table - Primary Key + Dimension columns (Categorical)
+
+1. Star Schema - When all the Dimension tables are directly linked with Fact table.
+-- Faster
+-- Less Tables
+-- Large data 
+
+2. Snowflake Schema - Dimension tables are interlinked with other dimension tables and fact table
+-- More tables
+-- Slower
+
+3. Galaxy Schema - Multiple Star Schemas together. Dimension tables are connected with multiple Fact tables.
+
+--------------------------------------------------------
+How many relationships can be established between two tables? More than 1
+How many active relationships can be established between two tables? Only 1
+Which Schema is better at performance? -- Star Schema
+
+Product Table
+
+Product ID
+Product Name
+Unit Price
+
+Cutomer Table
+
+Customer ID
+Cutomer Name
+Phoneno
+Mail
+Address
+
+Sales Table
+Cutomer ID
+Product ID
+Qunatity
+Unit price
+Sales
+
+

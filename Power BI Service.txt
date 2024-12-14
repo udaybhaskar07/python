@@ -1,0 +1,76 @@
+Power BI Service
+
+1. What is Power bI Service and how to open it? - app.powerbi.com
+2. How to publish a Report? Home tab --> Publish --> Select workspace --> Okay - Done
+-------------------------------------------------------------------
+3. What is Workspace?
+https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-create-the-new-workspaces
+
+Myworkspace -- Particular login person and cannot share the reports.
+Workpsace -- Public workpsace and users with permission can see the reports.
+-------------------------------------------------------------------
+4. What is Dataset,Report,Dashboard,Dataflow.
+--------------------------------------------------------------------
+5. Roles/Access in PBI Service.
+https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-roles-new-workspaces
+--------------------------------------------------------------------
+6. Dashboards - https://learn.microsoft.com/en-us/power-bi/create-reports/service-dashboards
+
+Report -- Multiple data sources and 1 dataset -- PBI Desktop
+Dashboard -- Multiple datasets -- PBI Service
+
+--------------------------------------------------------------------
+7. Content Sharing - https://learn.microsoft.com/en-us/power-bi/consumer/end-user-apps
+	-- Direct sharing.
+	-- Apps
+
+-- Each workspace has only one App.
+-- We can select only particular reports and publish through app.
+-------------------------------------------------------------------
+8. Refresh
+	-- Manual Refresh
+	-- Schedule Refresh
+9. Gateways - https://learn.microsoft.com/en-us/power-bi/connect-data/service-gateway-onprem
+-------------------------------------------------------------------
+10. Row Level Security
+https://www.acuitytraining.co.uk/news-tips/dynamic-row-level-security-in-power-bi/
+	-- Static
+	-- Dynamic
+-------------------------------------------------------------------
+11. Deployment Pipelines - Done
+
+https://learn.microsoft.com/en-us/power-bi/create-reports/deployment-pipelines-overview
+https://learn.microsoft.com/en-gb/power-bi/create-reports/deployment-pipelines-assign#limitations
+
+
+Resumes - 
+https://www.acuitytraining.co.uk/news-tips/dynamic-row-level-security-in-power-bi/
+
+
+Name
+Email
+Phone
+Linkedin
+
+Headline - max 2 lines
+Profile/Summary - 15+ points
+Skills - Technical skils, Soft skills
+Experience - include years and months
+Educations - include years and %
+Projects -  2 or 3
+Academic Projects
+Certificates
+
+
+
+
+
+
+
+
+
+
+
+
+
+

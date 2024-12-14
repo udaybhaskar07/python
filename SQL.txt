@@ -1,0 +1,164 @@
+SQL 
+
+What is SQL? - Done
+What is Database? - Done
+Difference between Database and SQL
+What is Application Software?
+Components of Database - Software, Hardware,Data, Access langauge, User/people,procedure.
+Type of SQL Commands - Done
+Types of Relationships in Database (One to one, Many to Many, One toMnay, Many to one)
+Comments in SQL 
+Single line comment - Start with double -- and space (-- )
+Multiple line comment - start with /* end with */
+Alias
+
+**********************************************************************************
+Database Commands - Done
+-- Create database (3 ways)
+-- Drop Database
+-- Show Database
+-- Backup database (Not work)
+
+Table Commands
+-- Create Table - Done
+-- Insert - Done
+	-- Datatypes in SQL - Done
+		** Text/String datatype
+		** Numeric datatype
+		** Date and Time datatypes
+-- Alter table - Done
+	** Add column
+	** Modify column
+	** Drop Column
+-- Drop a Table
+-- Delete
+-- Truncate
+-- Update
+-- Difference between Drop/delete/truncate/update
+
+constraints - Done
+-- Unique
+-- not null
+-- default
+-- check
+-- primary key
+-- foreign key
+
+********************************************************************************
+https://www.kaggle.com/datasets/apoorvaappz/global-super-store-dataset
+********************************************************************************
+Clause in SQL
+-- Select (Select *, select cols, select count, select distinct count, select distinct)
+-- From
+-- Where
+	Operators in SQL
+		-- Arithematic Operators - Done
+		-- Comparison Operators - Done
+		-- Logical Operators - Done
+		-- Range Operators - Done
+		-- String Operators (Like and Wildcard Operators) - Done
+		-- Regular expressions - https://www.geeksforgeeks.org/mysql-regular-expressions-regexp/
+
+-- Group by - Done
+-- Order by - Done
+-- Having
+-- Difference between Where and Having
+-- Limit/Top - Done
+
+Functions in SQL - Done
+-- String functions
+-- Numeric Functions
+-- Date and Time Functions
+-- Null Functions
+
+-- JOINS in sql
+	-- Difference between Equi join and Non-Equi joins
+	-- Cross Join
+	-- Inner Join
+	-- Outer Join
+		** Left (inclusive, Exclusive)
+		** Right (inclusive, Exclusive)
+		** Full (inclusive, Exclusive)
+	-- Natural Join
+	-- Self Join
+
+Set Operators - https://www.databasestar.com/sql-set-operators/
+	-- UNION
+	-- UNION all
+	-- Intersect (Theory)
+	-- Except (Theory)
+
+Subqueries
+
+------------------------------------------------------------------------------------------------------------
+Special Operators
+
+select market,sales from globalorders;
+select market,sales from globalorders where market = ANY (select market from globalorders where market = 'us');
+select market,sales from globalorders where market = ANY (select market from globalorders where market = 'uk');
+
+select market,sales from globalorders where market = ALL (select market from globalorders where market = 'us');
+select market,sales from globalorders where market = ALL (select market from globalorders where market = 'uk');
+
+select market,sales from globalorders where market = SOME (select market from globalorders where market = 'us');
+select market,sales from globalorders where market = SOME (select market from globalorders where market = 'uk');
+
+select market,sales from globalorders where EXISTS (select market from globalorders where market = 'us');
+select market,sales from globalorders where EXISTS (select market from globalorders where market = 'uk');
+
+select market,sales from globalorders where NOT EXISTS (select market from globalorders where market = 'us');
+select market,sales from globalorders where NOT EXISTS (select market from globalorders where market = 'uk');
+
+select market,sales from globalorders where market IN (select market from globalorders where market = 'us');
+select market,sales from globalorders where market IN (select market from globalorders where market = 'uk');
+----------------------------------------------------------------------------
+
+Views
+Synonyms (SQL Server)
+Indexing
+
+-----------------------------------------------
+Case Statements - Done
+
+select market,segment from globalorders;
+select market,segment,
+case
+when market = 'us' and segment = 'consumer' then 'USCONSUMER'
+when market = 'us' and segment = 'corporate' then 'USCORPORATE'
+when market = 'us' and segment = 'homeoffice' then 'USHOME'
+ELSE 'Nothing'
+end as Newcolumn
+from globalorders;
+----------------------------------------------------
+
+Window Functions
+	-- Row_Number
+	-- First_value()
+	-- Last_value()
+	-- Nth_value() {Mysql}, Ntile() {SQLSERVER}
+	-- Rank()
+	-- Dense_rank()
+	-- Lead()
+	-- Lag()
+
+
+POWER BI @ 7:30 AM (IST) by Miss. Mohana
+Day-1 https://youtu.be/PbDuulpPJsc
+Day-2 https://youtu.be/Trh9vpmNfbA
+Day-3 https://youtu.be/zmqXe7V4lJk
+Day-4 https://youtu.be/IJWDIw8OmnI
+Day-5 https://youtu.be/WERwEVo18cA
+Day-6 https://youtu.be/VADcfvgKRYE
+Day-7 https://youtu.be/OZf_6eGXZdE
+Day-8 https://youtu.be/b5Fe9pyto8Q
+Day-9 https://youtu.be/dnht6KSoUBQ
+Day-10 https://youtu.be/zZEm5JMxucw
+Day-11 https://youtu.be/PSrBfbZL_D0
+
+
+
+
+
+
+
+

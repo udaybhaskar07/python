@@ -1,0 +1,74 @@
+Power Pivot
+
+UI of Power Pivot
+
+- Ribbon (Tabs,groups, options)
+- Navigation
+- Data View/Result view
+- Data (Tables and Columns, Measures)
+- Formula Bar (DAX)
+------------------------------------------------
+What is DAX
+Data Analytical/Analysis Expressions
+-- Calculations
+-------------------------------------------------
+Basic syntax of DAX
+
+Column/measure/table name = Function(tablename[column names])
+
+---------------------------------------------------
+Difference between New column/ New Measure/ New Table
+
+Scaler Functions --> No.of input values = No.of output values (NEW COLUMN)
+Aggreagate Functions --> No.of input columns = Single Output (NEW MEASURE)
+NEW TABLE --> when the output is generation new table.
+
+--------------------------------------------------
+DAX Operators
+
+Arithematic Operators
+Comparison Operators
+Text Concatenate Operator
+Logical Operators
+
+---------------------------------------------------------
+DAX Functions (130) - https://learn.microsoft.com/en-us/dax/new-dax-functions
+---------------------------------------------------------
+1. Text Functions - (12)
+
+COMBINEVALUES
+CONCATENATE
+UPPER - TEXTUPPER = UPPER(GlobalOrders[CustomerName])
+LOWER - TEXTLOWER = LOWER(GlobalOrders[CustomerName])
+LEFT - TEXTLEFT = LEFT(GlobalOrders[CustomerName],4)
+RIGHT - TEXTRIGHT = RIGHT(GlobalOrders[CustomerName],3)
+MID
+REPLACE
+SUBSTITUTE
+FIND
+SEARCH
+TRIM
+
+---------------------------------------------------------
+2. Parent Child Functions (5)
+
+PATH
+PATHCONTAINS
+PATHITEM
+PATHITEMREVERSE
+PATHLENGTH
+
+-----------------------------------------------------------
+3. Numeric/Stats/Trig/Financial Functions (20)
+
+-----------------------------------------------------------
+4. Aggregate Functions
+5. Count Functions
+6. Date and Time Functions
+7. Time Intelligence Functions
+8. Relationship Functions (4)
+9. Filter Functions
+10. Logical Functions
+11. Informations Functions
+12. Table Manipulation Functions
+

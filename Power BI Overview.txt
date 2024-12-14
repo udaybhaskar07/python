@@ -1,0 +1,25 @@
+Power BI
+
+--------------------- Power BI Desktop -------------------------------------------
+1. Power Query Editor
+	-- Transformations using M-language (Mashup)
+	-- ETL (Extract,transform,load) of Power BI
+	-- This will display only 1000 rows
+	-- Row store
+
+2. Power Pivot
+	-- Transformations using DAX (Data analysis/analytical Expressions)
+	-- Columnar data storage
+	-- Vertipaq Engine (X-Velocity Engine)
+
+3. Data Modelling
+	-- Relationships
+	-- Schemas / Models
+
+4. Power View
+	-- Visualizations
+
+--------------------------------- Online ------------------------------------------
+
+5. Power BI Service
+	-- Sharing the reports

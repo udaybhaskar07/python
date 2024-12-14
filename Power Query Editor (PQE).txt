@@ -1,0 +1,196 @@
+Power Query Editor (PQE)
+
+***************** Power BI Desktop ************************************************
+1. Power Query Editor --> Transformations --> M language (Mashup)
+2. Power Pivot --> Transformations --> DAX language
+3. Data Modelling --> relationships between tables and Model/Schema building.
+4. Power View --> Visualizations
+
+***************** Online Service **************************************************
+5. Power BI Service --> Sharing content online
+
+--------------------------------------------------------------
+Data Sources in PBI
+--------------------------------------------------------------
+Getdata is the option used to load the data/connect the datasource to power BI.
+
+Excel File (Xlsx, Xls)
+Text/Csv
+SQL Server
+Web
+Online (Power BI Datasets)
+
+--------------------------------------------------------------
+How to open PQE? Click on Transfrom data to open PQE.
+
+Why is it called PQE?
+As the imported data is called Query, We Edit (Transformations) on Query hence know as PQE.
+
+What is Query?
+The imported data are knows as Query in PQE.
+----------------------------------------------------------------
+UI of PQE
+
+1. Ribbon Pane --> Ribon is used to select the options or transformations which has to be applied on data.
+	Tabs --> Groups --> Options
+2. Query Pane --> Query is the data table.
+	Table --> Database we call table
+	Query --> Same tables in database is known as Query in PQE.
+3. Formula Bar - Display the M-language for all the steps applied.
+4. Data View/Result View - Display the data and also diplays the result of transformed data.
+5. Query Settings Pane
+	Properties - Diaplys the selected data or 	Working data
+	Applied Steps - Displays the sequence of steps applied on a Query/table.
+---------------------------------------------------------------
+File - Done
+---------------------------------------------------------------
+Close
+	Close - This will close PQE without appling the changes to PBI Desktop.
+	Apply - This will apply the changes to PBI Desktop without closing the PQE.
+	Close & Apply - This will apply the changes to PBI Desktop and also close the PQE.
+
+Save - Save the File as .PBIX
+
+Options and Settings
+	Options - Setting options for PBI Desktop.
+	Datasource settings
+		Data source in current file - This will display the path of all source you have connected to.
+		Global permission - Displays the origin of Current file.
+		Change Datasource - Change the source location of imported data.
+		Export PBIDS - Helps you to export the transfromed data from PQE as PBIDS (Power BI Dataset).
+		Edit Permission - Helps you to grant permission to the Users at different levels.
+		Clear permission - Helps to delete the permission applied on the datasource.
+
+---------------------------------------------------------------
+Home
+
+New Source --> To connect to new data source
+Recent Sources --> To connect recently used data sources.
+Enter data --> Manually enter the data.
+
+Query Group
+Refresh
+	Refresh Preview --> Helps to preview the result of particular data.
+	Refresh All --> This will refresh all the tables.
+Advanced Editor --> Displays the M - language for all the steps applied oin PQE.
+Manage
+	Delete - will delete the data.
+	Duplicate - Create a duplicate copy with all the steps included and the steps can be reverted.
+	Reference - Create a duplicate copy with all the steps as Source and applied steps cannot be reverted.
+
+Sort
+	A-Z --> Ascending order
+	Z-A --> Decendenging Order
+Data type - This will help to change the type of data in column.
+---------------------------------------------------------------
+
+Transfrom and Add column
+
+Transfrom - Will perform changes on the same column selected
+Add column - Will perform changes by adding a new column at the end of data.
+
+Transpose - Shift the data from row to columns and vireversa.
+Reverse rows - This is shifting the data up side down.
+Count Rows - Thsi gives the count of all the rows in the data.
+Detect datatype - this helps you to detect the datatype of a column.
+Fill
+	Fill up - this will fill the before empty/null cell with the next value.
+	Fill Down - this will fill the succeding empty/null cell with the before value.
+Pivot - Separate the distinct value in a selected column to individual Columns.
+	 - This gives the summary of the column selected by gioving the summation of value column.
+Uppivot - Reverting the pivot applied.
+Move -
+	Right - shift the column to one step right.
+	Left - shift the column to one step left.
+	To beginning - Shift the column to beginning of data.
+	To end - Shift the column to end of data.
+Conditional column - It helps to customize the new rows and a new column with your values of understanding.
+Index column
+	From 1 - Will start giving index from 1.
+	From 0 - Will start giving index from 0.
+	Custom - you can decide the start index value and incement value.
+Custom column - Helps you to customize new column using PQ Formulas.
+Invoke cutome column  - This helps you to make use of created custom column.
+Column from example - Here we give example patteren and that pattern is taken as example from the remaining row of a column.
+--------------------------------------------------------------
+Row Transfromations
+
+Keep Rows
+	Keep Top Rows - will keep the number of rows mentioned from the top and removes other rows.
+	Keep Bottom Rows - will keep the number of rows mentioned from the bottom and removes other rows.
+	Keep range of Rows - This will keep the range of rows mentiond and remove the other rows.
+	Keep Duplicates - This will remain duplicates as it is.
+	Keep Errors - This will remain the errors as it is.
+
+Remove Rows
+	Remove Top Rows - This will remove top mentioned rows and keep the remaining data un disturbed.
+	Remove Bottom Rows - This will remove bottom mentioned rows and keep the remaining data un disturbed.
+	Remove Alternate Rows - This will follow gthe pattern mentioned and remove the other rows.
+	Remove Duplicates - This will remove the duplicate rows in a column selected.
+	Remove Errors - This will remove row which contain errors in the partivular column.
+
+use first row as headers - This will shift Headers to the first row of the table.
+Use headers as first row - This will shift the headers in first row to the headers section.
+Replace values - This will replace the selected value with the mentioned value.
+--------------------------------------------------------------
+Column Transfromations
+
+Choose Columns
+	Choose Columns - Choose the selected column and removes the other columns in the data.
+	Go to column - Select the column.
+Remove columns
+	REmove column - this will remove the selected column.
+	Remove other columns - Choose the selected column and removes the other columns in the data.
+
+--------------------------------------------------------------
+Table Transformations
+
+Groupby - This will consider all the unique values in a columns and displays a group and also 
+			gives the aggregate of corresponsing numeric column.
+Merge Queries
+	Left Outer join - all records from left tabel and common records from both the tables.
+	Right outer join - All the records from right table and common records from both tables.
+	Full join - All the records from both the tables.
+	Inner join - This will display common records from both the tables.
+	Left anti join - This will display all the non common records from left table.
+	Right anti join - This will display all the non common records from right table.
+
+Append Queries (union all) - This wil display all the records from both tables with duplicates.
+
+-------------------------------------------------------------
+Text data Transformation
+
+Split column
+	By delimiter - split the data in a column at every occurance of delimiter based on selected.
+	By number of characters - Splits the data based no of characters selected.
+	By positions - Splits the data based on position specify (Indexing starts from 0)
+	By uppercase to lowercase - Splits the data into new column every time a uppercase is observed.
+	By lowercase to uppercase - Splits the data into new column every time a lowercase is observed.
+	By digit to non-digit - Splits the data into new column every time a digit is observed.
+	By non-digit to digit -  Splits the data into new column every time a non-digit is observed.
+
+Format
+	lowercase - converts the text to lower case.
+	uppercase - converts the text to upper case.
+	Capitalize eachword - Converts the data such a each work starts to uppercase and continues with lowercase.
+	Trim - This will remove extra spaces.
+	Clean - This will remove extra spaces.
+	Add Prefix - This will add prefix to the text
+	Add Suffix - This will add Suffix to the text.
+Merge columns - This combines two or more columns.
+Extract
+	length - This give the length of Text.
+	First characters - Display the length of text mentiond from left.
+	Last charcaters - Display the length of text mentioned from right.
+	Range - Display the length of text based on range.
+	Text before Delimiter - Will separate the text before first delimiter.
+	Text After Delimiter - Will separate the text After first delimiter.
+	Text between Delimiter - Will separate the text between two Demiliters.
+
+-------------------------------------------------------------
+Numeric Data Transfromations
+Date and time data transformations
+
+View
+Tools
+Help - Done

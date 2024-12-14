@@ -1,0 +1,256 @@
+Power Pivot
+
+UI of Power Pivot
+
+- Ribbon (Tabs,groups, options)
+- Navigation
+- Data View/Result view
+- Data (Tables and Columns, Measures)
+- Formula Bar (DAX)
+------------------------------------------------
+What is DAX
+Data Analytical/Analysis Expressions
+-- Calculations
+-------------------------------------------------
+Basic syntax of DAX
+
+Column/measure/table name = Function(tablename[column names])
+
+---------------------------------------------------
+Difference between New column/ New Measure/ New Table
+
+Scaler Functions --> No.of input values = No.of output values (NEW COLUMN)
+Aggreagate Functions --> No.of input columns = Single Output (NEW MEASURE)
+NEW TABLE --> when the output is generation new table.
+
+--------------------------------------------------
+DAX Operators
+
+Arithematic Operators
+Comparison Operators
+Text Concatenate Operator - &
+	TEXTCON = GlobalOrders[Market] & " @ " & GlobalOrders[Segment]
+Logical Operators
+
+---------------------------------------------------------
+DAX Functions (130) - https://learn.microsoft.com/en-us/dax/new-dax-functions
+---------------------------------------------------------
+1. Text Functions - (14)
+
+COMBINEVALUES - TEXTCOMBINEVALUES = COMBINEVALUES(" @ ",GlobalOrders[Market],GlobalOrders[Segment])
+CONCATENATE - TEXTCONCATENATE = CONCATENATE(GlobalOrders[Market],GlobalOrders[Segment])
+UPPER - TEXTUPPER = UPPER(GlobalOrders[CustomerName])
+LOWER - TEXTLOWER = LOWER(GlobalOrders[CustomerName])
+LEFT - TEXTLEFT = LEFT(GlobalOrders[CustomerName],4)
+RIGHT - TEXTRIGHT = RIGHT(GlobalOrders[CustomerName],3)
+MID - TEXTMID = MID(GlobalOrders[CustomerName],3,4)
+REPLACE - TEXTREPLACE = REPLACE(GlobalOrders[CustomerName],4,2,"@")
+SUBSTITUTE - TEXTSUBSTITUTE = SUBSTITUTE(GlobalOrders[CustomerName],"a","@",3)
+FIND - TEXTFIND = FIND("A",GlobalOrders[CustomerName],2,BLANK())
+SEARCH - TEXTSEARCH = SEARCH("A",GlobalOrders[CustomerName],2,0)
+TRIM - TRIMNAMES = TRIM(Trim_table[NAMES])
+LEN - Length = LEN(Trim_table[NAMES])
+BLANK() - TEXTFIND = FIND("A",GlobalOrders[CustomerName],2,BLANK())
+
+---------------------------------------------------------
+2. Parent Child Functions (5)
+
+PATH
+	PARENTPATH = PATH('Parent child'[Employee Name],'Parent child'[Manager Name])
+	PARENTPATH1 = PATH('Parent child'[Employee ID],'Parent child'[Manager ID])
+
+PATHCONTAINS
+	PATHCONTAINS = PATHCONTAINS('Parent child'[PARENTPATH],"Barry")
+	PATHCONTAINS = PATHCONTAINS(PATH('Parent child'[Employee Name],'Parent child'[Manager Name]),"Barry")
+
+PATHITEM - PATHITEM = PATHITEM('Parent child'[PARENTPATH],4,TEXT)
+PATHITEMREVERSE - PATHITEMREVERSE = PATHITEMREVERSE('Parent child'[PARENTPATH],4,TEXT)
+PATHLENGTH - PATHLENGTH = PATHLENGTH('Parent child'[PARENTPATH])
+
+-----------------------------------------------------------
+3. Numeric/Stats/Trig/Financial Functions (19)
+
+DIVIDE - DIVIDE = DIVIDE(GlobalOrders[Sales],GlobalOrders[Quantity])
+LOG - LOG = LOG(GlobalOrders[Sales],2)
+LOG10 - LOG10 = LOG10(GlobalOrders[Sales])
+SIN - SIN = SIN(GlobalOrders[Sales])
+TAN - TAN = TAN(GlobalOrders[Sales])
+COS - COS = COS(GlobalOrders[Sales])
+POWER - POWER = POWER(GlobalOrders[Quantity],2)
+CURRENCY - CURRENCY = CURRENCY(GlobalOrders[Sales])
+DEGREES - DEGREES = DEGREES(GlobalOrders[Quantity])
+FLOOR - FLOOR = FLOOR(GlobalOrders[Sales],1)
+ROUND - ROUND = ROUND(GlobalOrders[Sales],2)
+ROUNDUP - ROUNDUP = ROUNDUP(GlobalOrders[Sales],1)
+ROUNDDOWN - ROUNDDOWN = ROUNDDOWN(GlobalOrders[Sales],1)
+RAND - RAND = RAND()
+RANDBETWEEN - RANDBETWEEN = RANDBETWEEN(400,500)
+SQRT - SQRT = SQRT(GlobalOrders[POWER])
+MEDIAN - MEDIAN = MEDIAN(GlobalOrders[Sales])
+STD - STDEV = STDEV.P(GlobalOrders[Sales])
+VAR - VAR = VAR.P(GlobalOrders[Sales])
+
+-----------------------------------------------------------
+4. Aggregate Functions (10)
+
+SUM - SUM = SUM(Countfunctions[Sales])
+SUMX - SUMX = CALCULATE(SUMX(FILTER(Countfunctions,Countfunctions[Market] = "US"),Countfunctions[Sales]))
+AVERAGE - AVERAGE = AVERAGE(Countfunctions[Sales])
+AVERAGEX - AverageX = CALCULATE(AVERAGEX(FILTER(Countfunctions,Countfunctions[Market] = "US"),Countfunctions[Sales]))
+MIN - MIN = MIN(Countfunctions[Sales])
+MINX - MINX = CALCULATE(MINX(FILTER(Countfunctions,Countfunctions[Market] = "US"),Countfunctions[Sales]))
+MAX - MAX = MAX(Countfunctions[Sales])
+MAXX - MAXX = CALCULATE(MAXX(FILTER(Countfunctions,Countfunctions[Market] = "US"),Countfunctions[Sales]))
+PRODUCT - PRODUCT = PRODUCT(Countfunctions[Sales])
+PRODUCTX - PRODUCTX = CALCULATE(PRODUCTX(FILTER(Countfunctions,Countfunctions[Market] = "US"),Countfunctions[Sales]))
+
+------------------------------------------------------------
+5. Count Functions (6)
+
+COUNTROWS - COUNTROWS = COUNTROWS(Countfunctions) --> Table execution
+COUNTBLANK - COUNTBLANKS = COUNTBLANK(Countfunctions[Sales])
+DISTINCTCOUNT - DISTINCTCOUNT = DISTINCTCOUNT(Countfunctions[Market]) --> inlcude blanks
+DISTINCTCOUNTNOBLANK - DISTINCTCOUNTNOBLANK = DISTINCTCOUNTNOBLANK(Countfunctions[Market]) --> not include blank
+COUNT - COUNT = COUNT(Countfunctions[Market]) --> will not include blanks
+COUNTX - COUNTX = CALCULATE(COUNTX(FILTER(Countfunctions,Countfunctions[Market] = "US"),Countfunctions[Sales]))
+
+------------------------------------------------------------
+6. Date and Time Functions (19)
+
+Calender - CALENDAR = CALENDAR(DATE(2022,1,1),DATE(2023,4,18))
+	- This will return a single date column with datetime format.
+	- Range of date is given by user.
+
+Calenderauto - CALENDARAUTO = CALENDARAUTO()
+	- This will return a single date column with datatime format.
+	- Range is automatically taken as reference from all date columns in data table.
+
+DATE - DATE1 = DATE(2022,2,23)
+TIME - TIME = TIME(23,20,21)
+Now() - NOW = NOW()
+Today() - TODAY = TODAY()
+UTCNOW() - UTCNOW = UTCNOW()
+UTCTODAY() - UTCTODAY = UTCTODAY()
+YEAR - YEAR = YEAR('CALENDAR'[Date])
+QUARTER - QUARTER = QUARTER('CALENDAR'[Date])
+MONTH - MONTH = MONTH('CALENDAR'[Date])
+DAY - DAY = DAY('CALENDAR'[Date])
+HOUR - HOUR = HOUR('CALENDAR'[NOW])
+MINUTES - MINUTES = MINUTE('CALENDAR'[NOW])
+SECONDS - SECONDS = SECOND('CALENDAR'[NOW])
+EDATE - EDATE = EDATE(TODAY(),2)
+EOMONTH - EOMONTH = EOMONTH(TODAY(),2)
+FORMAT
+	QUARTERNAME = FORMAT('CALENDAR'[Date],"\QTR q")
+	Monthname = FORMAT('CALENDAR'[Date],"MMMM")
+	DAYNAME = FORMAT('CALENDAR'[Date],"dddd")
+DATEDIFF - DATEDIFF = DATEDIFF('CALENDAR'[Date],TODAY(),YEAR)
+
+------------------------------------------------------------
+7. Time Intelligence Functions (21)
+
+1. Import your data.
+2. Create datatable.
+3. Establish relationship between datetable and data table.
+4. Mark as Datetable
+5. Create a Measure
+
+PREVIOUSYEAR - PREVIOUSYEAR = CALCULATE(SUM(GlobalOrders[Sales]),PREVIOUSYEAR('DATATABLE'[Date]))
+PREVIOUSQUARTER - PREVIOUSQUARTER = CALCULATE(SUM(GlobalOrders[Sales]),PREVIOUSQUARTER('DATATABLE'[Date]))
+PREVIOUSMONTH - PREVIOUSMONTH = CALCULATE(SUM(GlobalOrders[Sales]),PREVIOUSMONTH('DATATABLE'[Date]))
+PREVIOUSDAY - PREVIOUSDAY = CALCULATE(SUM(GlobalOrders[Sales]),PREVIOUSDAY('DATATABLE'[Date]))
+NEXTYEAR - NEXTYEAR = CALCULATE(SUM(GlobalOrders[Sales]),NEXTYEAR('DATATABLE'[Date]))
+NEXTQUARTER - NEXTQUARTER = CALCULATE(SUM(GlobalOrders[Sales]),NEXTQUARTER('DATATABLE'[Date]))
+NEXTMONTH - NEXTMONTH = CALCULATE(SUM(GlobalOrders[Sales]),NEXTMONTH('DATATABLE'[Date]))
+NEXTDAY - NEXTDAY = CALCULATE(SUM(GlobalOrders[Sales]),NEXTDAY('DATATABLE'[Date]))
+STARTOFYEAR - STARTOFYEAR = CALCULATE(SUM(GlobalOrders[Sales]),STARTOFYEAR('DATATABLE'[Date]))
+STARTOFQUARTER - STARTOFQUARTER = CALCULATE(SUM(GlobalOrders[Sales]),STARTOFQUARTER('DATATABLE'[Date]))
+STARTOFMONTH - STARTOFMONTH = CALCULATE(SUM(GlobalOrders[Sales]),STARTOFMONTH('DATATABLE'[Date]))
+ENDOFYEAR - ENDOFYEAR = CALCULATE(SUM(GlobalOrders[Sales]),ENDOFYEAR('DATATABLE'[Date]))
+ENDOFQUARTER - ENDOFQUARTER = CALCULATE(SUM(GlobalOrders[Sales]),ENDOFQUARTER('DATATABLE'[Date]))
+ENDOFMONTH - ENDOFMONTH = CALCULATE(SUM(GlobalOrders[Sales]),ENDOFMONTH('DATATABLE'[Date]))
+DATESYTD - DATESYTD = CALCULATE(SUM(GlobalOrders[Sales]),DATESYTD('DATATABLE'[Date]))
+DATESQTD - DATESQTD = CALCULATE(SUM(GlobalOrders[Sales]),DATESQTD('DATATABLE'[Date]))
+DATESMTD - DATESMTD = CALCULATE(SUM(GlobalOrders[Sales]),DATESMTD('DATATABLE'[Date]))
+YOY - (presentyear - previousyear)/previousyear - YOY = DIVIDE(SUM(GlobalOrders[Sales]) - [PREVIOUSYEAR],[PREVIOUSYEAR])
+YOY% - (presentyear - previousyear)/previousyear * 100
+	YOY% = ROUND(DIVIDE(SUM(GlobalOrders[Sales]) - [PREVIOUSYEAR],[PREVIOUSYEAR]) * 100,0) & "%"
+QOQ - QOQ = DIVIDE(SUM(GlobalOrders[Sales]) - [PREVIOUSQUARTER],[PREVIOUSQUARTER])
+QOQ% - QOQ% = DIVIDE(SUM(GlobalOrders[Sales]) - [PREVIOUSQUARTER],[PREVIOUSQUARTER]) * 100
+
+-------------------------------------------------------------
+8. Relationship Functions (4)
+
+RELATE
+RELATEDTABLE
+USERELATIONSHIP
+CROSSFILTER
+
+--------------------------------------------------------------
+9. Filter Functions (7)
+
+CALCULATE - Done
+FILTER - Done
+ALL
+
+Table Reference - This ignores all the filters in the Table/Page.
+	ALLTABLE = CALCULATE(SUM(GlobalOrders[Sales]),ALL(GlobalOrders))
+
+Column Reference - This ignores only the filter mentioned in DAX (or) It Considers all the filters except the one mentioned in DAX.
+	ALLCOLUMN = CALCULATE(SUM(GlobalOrders[Sales]),ALL(GlobalOrders[Market]))
+
+ALLEXCEPT - This will consider only the filter mentioned in DAX.
+	ALLEXCEPTTABLE = CALCULATE(SUM(GlobalOrders[Sales]),ALLEXCEPT(GlobalOrders,GlobalOrders[Market]))
+
+ALLSELECTED
+Table Reference - This considers all the filters in the Table/Page.
+	ALLSELECTEDTABLE = CALCULATE(SUM(GlobalOrders[Sales]),ALLSELECTED(GlobalOrders))
+
+Column reference - This considers all the filters in the Table/Page.
+	ALLSELECTEDCOLUMN = CALCULATE(SUM(GlobalOrders[Sales]),ALLSELECTED(GlobalOrders[Market]))
+
+KEEPFILTERS - KEEPFILTERS = CALCULATE(SUM(GlobalOrders[Sales]),KEEPFILTERS(GlobalOrders[Market] = "US"))
+REMOVEFILTERS - REMOVE_FILTERS = CALCULATE(SUM(GlobalOrders[Sales]),REMOVEFILTERS(GlobalOrders))
+
+-------------------------------------------------------------
+10. Logical Functions (6)
+
+AND - APAC_200 = CALCULATE(SUM(Logical[Sales]),FILTER(Logical,Logical[Market] = "APAC" && Logical[Sales] > 200))
+OR - APAC_US = CALCULATE(SUM(Logical[Sales]),FILTER(Logical,Logical[Market] = "APAC" || Logical[Market] = "US"))
+NOT
+	APAC_200_NOT = CALCULATE(SUM(Logical[Sales]),FILTER(Logical,Logical[Market] = "APAC" && Logical[Sales] <> 200))
+	APAC_200_NOT1 = CALCULATE(SUM(Logical[Sales]),FILTER(Logical,Logical[Market] = "APAC" && NOT(Logical[Sales] > 200)))
+IF
+	IF = IF(Logical[Market] = "US" && Logical[Sales] > 200,"UNITED STATES",BLANK())
+	IF = IF(Logical[Market] = "US" && Logical[Sales] > 200,"UNITED STATES",IF(Logical[Market] = "APAC" && Logical[Sales] > 100, "ASIAPACIFIC",IF(Logical[Market] = "EMEA","Europe",blank())))
+
+SWITCH - SWITCH = SWITCH(QUARTER(CALENDERAUTO[Date]),1,"QTR 1",2,"QTR 2",3,"QTR 3",4,"QTR 4")
+ISBLANK - CONSUMER = IF(ISBLANK(CALCULATE(SUM(GlobalOrders[Sales]),FILTER(GlobalOrders,GlobalOrders[Segment] = "Consumer"))),0,CALCULATE(SUM(GlobalOrders[Sales]),FILTER(GlobalOrders,GlobalOrders[Segment] = "Consumer")))
+
+-------------------------------------------------------------
+11. Informations Functions (9)
+
+ISERROR - ISERROR = ISERROR('Information sFunctions'[OrderPriority])
+ISEVEN - ISEVEN = ISEVEN('Information sFunctions'[Quantity])
+ISODD - ISODD = ISODD('Information sFunctions'[Quantity])
+ISTEXT - ISTEXT = ISTEXT('Information sFunctions'[Market])
+ISNONTEXT - ISNONTEXT = ISNONTEXT('Information sFunctions'[Quantity])
+ISNUMBER - ISNUMBER = ISNUMBER('Information sFunctions'[Quantity])
+ISEMPTY - ISEMPTY = ISEMPTY('Information sFunctions')
+USERNAME - USERNAME = USERNAME()
+USERPRINCIPLENAME - USERPRINCIPLE = USERPRINCIPALNAME()
+
+---------------------------------------------------------------
+12. Table Manipulation Functions (10)
+
+DISTINCT (Column)
+DISTINCT (Table)
+UNION
+INTERSECT
+CROSSJOIN
+NATURALINNERJOIN
+NATURALLEFTOUTERJOIN
+GROUPBY
+CURRENTGROUP
+ADDCOLUMNS
+
